@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+@model List<crud_application.Models.mymodelClass1>
+
+<table class="table table-bordered table-hover table-striped">
+    <tr>
+        <th>ID </th>
+        <th>NAME </th>
+        <th>MOBILE NO </th>
+        <th>EMAIL ID </th>
+        <th>DEPARTMENT </th>
+        <th>SALARY </th>
+        <th>ZIPCODE </th>
+        <th>ACTION </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.id</td>
+    <td>@item.name</td>
+    <td>@item.mobile</td>
+    <td>@item.email</td>
+    <td>@item.dept</td>
+    <td>@item.sal</td>
+    <td>@item.zip</td>
+   
+    <td><a href="@Url.Action("edit", "Home", new {item.id})" class="btn-group btn-warning">EDIT</a>
+        <a href="@Url.Action("delete", "Home", new {item.id})" class="btn-group btn-danger">DELETE</a>
+    </td>
+</tr>
+    }
+</table>
